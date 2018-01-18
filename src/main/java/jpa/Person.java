@@ -6,7 +6,6 @@ import java.util.List;
 
 @Entity
 public class Person {
-
     /**
      * Person's devices
      */
@@ -87,7 +86,6 @@ public class Person {
         this.id = id;
     }
 
-    @Column
     public String getName() {
         return name;
     }
@@ -96,7 +94,6 @@ public class Person {
         this.name = name;
     }
 
-    @Column
     public String getSurname() {
         return surname;
     }
@@ -105,7 +102,6 @@ public class Person {
         this.surname = surname;
     }
 
-    @Column
     public String getMail() {
         return mail;
     }
