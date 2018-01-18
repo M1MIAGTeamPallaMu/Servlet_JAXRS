@@ -1,5 +1,12 @@
 package servlet;
 
+import domain.Person;
+import Jpa.GenTestDAO;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,10 +15,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name= "userinfo" , urlPatterns={ "/userinfo" })
+@WebServlet(name= "userInfo" , urlPatterns={ "/UserInfo" })
 public class UserInfo extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request , HttpServletResponse response ) throws ServletException, IOException {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("dev");
+        EntityManager manager = factory.createEntityManager();
+        GenTestDAO genTestDAO = new GenTestDAO(manager);
+        EntityTransaction tx = manager.getTransaction();
+        Person user = new Person(request.getParameter("name"),
+                request.getParameter("firstname"),
+                request.getParameter("email"));
+        tx.begin();
+        genTestDAO.create(user);
+        tx.commit();
         response .setContentType( "text/html" );
         PrintWriter out = response .getWriter();
         out.println( "<html>\n<body>\n" +
@@ -21,8 +38,8 @@ public class UserInfo extends HttpServlet {
                 + request . getParameter ( "name" ) + "\n" +
                 " <li>Prenom: "
                 + request . getParameter ( "firstname" ) + "\n" +
-                " <li>Age: "
-                + request . getParameter ( "age" ) + "\n" +
+                " <li>Email: "
+                + request . getParameter ( "email" ) + "\n" +
                 "</ul>\n" +
                 "</body></html>" );
     }
