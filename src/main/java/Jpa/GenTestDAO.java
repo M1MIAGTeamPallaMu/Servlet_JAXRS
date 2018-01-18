@@ -1,4 +1,4 @@
-package jpa;
+package Jpa;
 
 import javax.persistence.EntityManager;
 import java.io.Serializable;
@@ -16,17 +16,16 @@ public class GenTestDAO implements GenericDAO {
     }
     /**
      * @param o
-     * @return
      */
-    public Object create(Object o) {
-        this.entityManager.persist(o);
-        return o;
+    public void create(Object...o) {
+        for (Object anO : o) {
+            this.entityManager.persist(anO);
+        }
     }
 
     /**
      * @param id
      * @param c
-     * @return
      */
     public Object read(Serializable id, Class c) {
         return this.entityManager.find(c, id);
@@ -34,17 +33,20 @@ public class GenTestDAO implements GenericDAO {
 
     /**
      * @param o
-     * @return
      */
-    public Object update(Object o) {
-        return this.entityManager.merge(o);
+    public void update(Object...o) {
+        for (Object in: o) {
+            this.entityManager.merge(in);
+        }
     }
 
     /**
      * @param o
      */
-    public void delete(Object o) {
-        this.entityManager.remove(o);
+    public void delete(Object...o) {
+        for (Object in : o){
+            this.entityManager.remove(in);
+        }
     }
     
 }
