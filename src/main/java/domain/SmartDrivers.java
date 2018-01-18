@@ -1,4 +1,4 @@
-package jpa;
+package domain;
 
 public class SmartDrivers {
 

@@ -1,4 +1,4 @@
-package jpa;
+package domain;
 
 import javax.persistence.*;
 import java.util.ArrayList;
