@@ -45,16 +45,6 @@ public class Home {
         return this.owner;
     }
 
-    @Transient
-    public List<ElectronicDevice> getHomeDevices(){
-        return this.owner.getDevices();
-    }
-
-    @Transient
-    public void setHomeDevices(ElectronicDevice electronicDevice){
-        this.owner.getDevices().add(electronicDevice);
-    }
-
     public void setOwner(Person owner) {
         this.owner = owner;
     }
