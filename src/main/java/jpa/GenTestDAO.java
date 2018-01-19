@@ -1,4 +1,4 @@
-package Jpa;
+package jpa;
 
 import javax.persistence.EntityManager;
 import java.io.Serializable;

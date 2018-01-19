@@ -1,7 +1,7 @@
 package servlet;
 
 import domain.Person;
-import Jpa.GenTestDAO;
+import jpa.GenTestDAO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

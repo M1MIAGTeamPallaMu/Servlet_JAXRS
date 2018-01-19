@@ -50,5 +50,15 @@
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-servlet</artifactId>
+			<version>1.18.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>1.18.3</version>
+		</dependency>
 	</dependencies>
 </project>

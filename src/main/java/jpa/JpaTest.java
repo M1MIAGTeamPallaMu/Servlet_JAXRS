@@ -1,11 +1,10 @@
-package Jpa;
+package jpa;
 import domain.ElectronicDevice;
 import domain.Heater;
 import domain.Home;
 import domain.Person;
 
 import javax.persistence.*;
-
 
 public class JpaTest {
 	public static void main(String[] args) {

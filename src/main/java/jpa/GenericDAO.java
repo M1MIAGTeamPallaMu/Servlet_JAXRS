@@ -1,4 +1,4 @@
-package Jpa;
+package jpa;
 
 import java.io.Serializable;
 
