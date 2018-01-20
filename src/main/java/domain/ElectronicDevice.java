@@ -3,7 +3,6 @@ package domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class ElectronicDevice extends SmartDrivers {
@@ -11,11 +10,12 @@ public class ElectronicDevice extends SmartDrivers {
     /**
      *
      */
-    private long id;
+    private int id;
+
     /**
      *
      */
-    private Person p;
+    private String device;
     /**
      *
      */
@@ -23,28 +23,19 @@ public class ElectronicDevice extends SmartDrivers {
 
     public ElectronicDevice(){}
 
-    public ElectronicDevice(int watts, Person p){
+    public ElectronicDevice(String device, int watts){
+        this.device = device;
         this.watts = watts;
-        this.p = p;
     }
 
     @Id
     @GeneratedValue
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
-    }
-
-    @ManyToOne
-    public Person getP() {
-        return p;
-    }
-
-    public void setP(Person p) {
-        this.p = p;
     }
 
     public int getWatts() {
@@ -53,5 +44,13 @@ public class ElectronicDevice extends SmartDrivers {
 
     public void setWatts(int watts) {
         this.watts = watts;
+    }
+
+    public String getDevice() {
+        return device;
+    }
+
+    public void setDevice(String device) {
+        this.device = device;
     }
 }

@@ -1,5 +1,7 @@
 package domain;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,9 +9,9 @@ import java.util.List;
 @Entity
 public class Home {
     /**
-     * House owner
+     *
      */
-    private Person owner;
+    private Address homeAddress;
 
     /**
      * heaters in the house
@@ -18,8 +20,7 @@ public class Home {
     /**
      * home id
      */
-    private long homeID;
-
+    private int homeID;
     /**
      *
      */
@@ -33,29 +34,21 @@ public class Home {
     public Home(){
 
     }
-    public Home(int size, int rooms, Person owner){
+
+    public Home(int size, int rooms, Address homeAddress){
         this.size = size;
         this.rooms = rooms;
-        this.owner = owner;
+        this.homeAddress = homeAddress;
         this.heaters = new ArrayList<Heater>();
-    }
-
-    @ManyToOne
-    public Person getOwner() {
-        return this.owner;
-    }
-
-    public void setOwner(Person owner) {
-        this.owner = owner;
     }
 
     @Id
     @GeneratedValue
-    public long getHomeID() {
+    public int getHomeID() {
         return this.homeID;
     }
 
-    public void setHomeID(long homeID) {
+    public void setHomeID(int homeID) {
         this.homeID = homeID;
     }
 
@@ -75,12 +68,22 @@ public class Home {
         this.rooms = rooms;
     }
 
-    @OneToMany(mappedBy = "home")
+    @JsonIgnore
+    @OneToMany(targetEntity = Heater.class)
     public List<Heater> getHeaters() {
         return this.heaters;
     }
 
     public void setHeaters(List<Heater> heaters) {
         this.heaters = heaters;
+    }
+
+    @OneToOne(targetEntity = Address.class)
+    public Address getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(Address homeAddress) {
+        this.homeAddress = homeAddress;
     }
 }
