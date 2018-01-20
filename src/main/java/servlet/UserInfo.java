@@ -19,16 +19,14 @@ import java.io.PrintWriter;
 public class UserInfo extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request , HttpServletResponse response ) throws ServletException, IOException {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("dev");
-        EntityManager manager = factory.createEntityManager();
-        GenTestDAO genTestDAO = new GenTestDAO(manager);
-        EntityTransaction tx = manager.getTransaction();
-        Person user = new Person(request.getParameter("name"),
-                request.getParameter("firstname"),
-                request.getParameter("email"));
-        tx.begin();
+        GenTestDAO genTestDAO = new GenTestDAO();
+        Person user = new Person();
+        user.setName(request.getParameter("name"));
+        user.setSurname(request.getParameter("firstname"));
+        user.setMail(request.getParameter("email"));
+        genTestDAO.getTransaction().begin();
         genTestDAO.create(user);
-        tx.commit();
+        genTestDAO.getTransaction().commit();
         response .setContentType( "text/html" );
         PrintWriter out = response .getWriter();
         out.println( "<html>\n<body>\n" +
