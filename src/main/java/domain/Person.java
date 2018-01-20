@@ -1,7 +1,10 @@
 package domain;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -21,7 +24,7 @@ public class Person {
     /**
      *
      */
-    private long id;
+    private int id;
 
     /**
      *
@@ -49,7 +52,8 @@ public class Person {
         this.friends = new ArrayList<Person>();
     }
 
-    @OneToMany(mappedBy = "p")
+    @JsonIgnore
+    @OneToMany(targetEntity = ElectronicDevice.class, fetch=FetchType.LAZY)
     public List<ElectronicDevice> getDevices() {
         return devices;
     }
@@ -58,7 +62,8 @@ public class Person {
         this.devices = devices;
     }
 
-    @ManyToMany
+    @JsonIgnore
+    @ManyToMany(targetEntity = Person.class, fetch=FetchType.LAZY)
     public List<Person> getFriends() {
         return friends;
     }
@@ -67,7 +72,8 @@ public class Person {
         this.friends = friends;
     }
 
-    @OneToMany(mappedBy = "owner")
+    @JsonIgnore
+    @OneToMany(targetEntity = Home.class, fetch=FetchType.LAZY)
     public List<Home> getHomes() {
         return homes;
     }
@@ -78,11 +84,11 @@ public class Person {
 
     @Id
     @GeneratedValue
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -109,4 +115,19 @@ public class Person {
     public void setMail(String mail) {
         this.mail = mail;
     }
+
+    public void addDevices(ElectronicDevice...devices){
+        Collections.addAll(this.devices, devices);
+    }
+
+    @Transient
+    public void addHomes(Home...homes){
+        Collections.addAll(this.homes, homes);
+    }
+
+    @Transient
+    public void addFriends(Person...friends){
+        Collections.addAll(this.friends, friends);
+    }
+
 }
