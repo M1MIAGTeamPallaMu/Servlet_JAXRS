@@ -1,19 +1,16 @@
 package jpa;
 
 import javax.persistence.EntityManager;
-import java.io.Serializable;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 
 public class GenTestDAO implements GenericDAO {
-    private EntityManager entityManager;
+    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("dev");
+    EntityManager entityManager = this.entityManagerFactory.createEntityManager();
+    EntityTransaction transaction = this.entityManager.getTransaction();
 
-    /**
-     *
-     * @param entityManager
-     */
-    public GenTestDAO(EntityManager entityManager){
-        this.entityManager = entityManager;
-    }
     /**
      * @param o
      */
@@ -27,7 +24,7 @@ public class GenTestDAO implements GenericDAO {
      * @param id
      * @param c
      */
-    public Object read(Serializable id, Class c) {
+    public Object read(int id, Class c) {
         return this.entityManager.find(c, id);
     }
 
@@ -48,5 +45,27 @@ public class GenTestDAO implements GenericDAO {
             this.entityManager.remove(in);
         }
     }
-    
+
+    /**
+     *
+     * @return
+     */
+    public EntityManager getEntityManager() {
+        return this.entityManager;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public EntityManagerFactory getEntityManagerFactory() {
+        return this.entityManagerFactory;
+    }
+
+    /**
+     * @return EntityTransaction
+     */
+    public EntityTransaction getTransaction() {
+        return this.transaction;
+    }
 }
