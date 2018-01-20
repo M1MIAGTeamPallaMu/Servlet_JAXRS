@@ -1,8 +1,6 @@
 package jpa;
 
-import java.io.Serializable;
-
-public interface GenericDAO<T, PK extends Serializable> {
+public interface GenericDAO<T> {
     /**
      *
      * @param t object to persist
@@ -15,7 +13,7 @@ public interface GenericDAO<T, PK extends Serializable> {
      * @param id object id
      * @return object
      */
-    T read(PK id, Class c);
+    T read(int id, Class c);
 
     /**
      *
