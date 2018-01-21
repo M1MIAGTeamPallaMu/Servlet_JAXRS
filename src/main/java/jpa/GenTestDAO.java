@@ -6,7 +6,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 
-public class GenTestDAO implements GenericDAO {
+public class GenTestDAO {
     EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("dev");
     EntityManager entityManager = this.entityManagerFactory.createEntityManager();
     EntityTransaction transaction = this.entityManager.getTransaction();

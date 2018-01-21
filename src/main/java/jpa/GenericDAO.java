@@ -13,7 +13,7 @@ public interface GenericDAO<T> {
      * @param id object id
      * @return object
      */
-    T read(int id, Class c);
+    T read(int id);
 
     /**
      *

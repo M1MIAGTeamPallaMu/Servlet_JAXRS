@@ -8,7 +8,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path( "/api" )
 public class WebServices {
     private GenTestDAO genTestDAO = new GenTestDAO();
 
@@ -53,15 +52,6 @@ public class WebServices {
     @Produces({MediaType.APPLICATION_JSON})
     public Person person(@PathParam("id") int id){
         return (Person) this.genTestDAO.read(id, Person.class);
-    }
-
-    @GET
-    @Path("/homes")
-    @Produces({MediaType.APPLICATION_JSON})
-    public Response homes(){
-        return this.response(this.genTestDAO.getEntityManager().
-                createQuery("from Home", Home.class).
-                getResultList());
     }
 
     private Response response(Object o){
