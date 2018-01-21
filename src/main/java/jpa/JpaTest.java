@@ -1,10 +1,9 @@
 package jpa;
-import domain.*;
 
 
 public class JpaTest {
 	public static void main(String[] args) {
-		GenTestDAO dao = new GenTestDAO();
+		/*GenTestDAO dao = new GenTestDAO();
 		Person p = new Person("Joshua", "Finch", "finch.joshua@email.com");
 		Person p1 = new Person("Helen", "Ramirez", "ramirez.helen@email.com");
 		Person p3 = new Person("John", "Snow", "snow.john@got.com");
@@ -36,6 +35,8 @@ public class JpaTest {
 		dao.getTransaction().commit();
 		dao.getEntityManager().close();
 		dao.getEntityManagerFactory().close();
+		*/
 	}
+
 
 }
