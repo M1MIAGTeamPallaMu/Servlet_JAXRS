@@ -15,9 +15,11 @@ public class GenTestDAO {
      * @param o
      */
     public void create(Object...o) {
+        this.transaction.begin();
         for (Object anO : o) {
             this.entityManager.persist(anO);
         }
+        this.transaction.commit();
     }
 
     /**
@@ -41,9 +43,11 @@ public class GenTestDAO {
      * @param o
      */
     public void delete(Object...o) {
+        this.transaction.begin();
         for (Object in : o){
             this.entityManager.remove(in);
         }
+        this.transaction.commit();
     }
 
     /**
