@@ -14,7 +14,9 @@ public class HomeWebServices {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public Response homes(){
-        return this.response(this.hdao.getEntityManager().createQuery("from Home", Home.class));
+        return this.response(this.hdao.getEntityManager().
+                createQuery("from Home", Home.class).
+                getResultList());
     }
 
     @POST
