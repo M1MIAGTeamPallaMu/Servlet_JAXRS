@@ -14,7 +14,6 @@ public class PersonWebServices {
     private PersonDAO dao = new PersonDAO();
 
     @GET
-    @Path("/")
     @Produces({MediaType.APPLICATION_JSON})
     public Response people(){
         return this.response(this.dao.readAll());
