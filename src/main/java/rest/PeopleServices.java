@@ -3,12 +3,11 @@ package rest;
 import domain.Person;
 import jpa.GenTestDAO;
 
-import javax.print.attribute.standard.Media;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/api")
+@Path("/peoplapi")
 public class PeopleServices {
     private GenTestDAO genTestDAO = new GenTestDAO();
 
