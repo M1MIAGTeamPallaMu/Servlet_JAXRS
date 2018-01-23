@@ -1,14 +1,15 @@
 package rest;
 
-import domain.Home;
 import domain.Person;
 import jpa.GenTestDAO;
 
+import javax.print.attribute.standard.Media;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-public class WebServices {
+@Path("/api")
+public class PeopleServices {
     private GenTestDAO genTestDAO = new GenTestDAO();
 
     @GET
@@ -52,6 +53,23 @@ public class WebServices {
     @Produces({MediaType.APPLICATION_JSON})
     public Person person(@PathParam("id") int id){
         return (Person) this.genTestDAO.read(id, Person.class);
+    }
+
+    @POST
+    @Path("/addPerson")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response personPost(Person p){
+        genTestDAO.create(p);
+        return Response.status(201).entity(p).build();
+    }
+
+    @DELETE
+    @Path("deletePerson/{id}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response delete(@PathParam("id") int id){
+        this.genTestDAO.delete(this.genTestDAO.read(id, Person.class));
+        return this.people();
     }
 
     private Response response(Object o){
