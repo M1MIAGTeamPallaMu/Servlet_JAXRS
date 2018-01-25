@@ -1,6 +1,6 @@
 package jpa;
 
-public interface GenericDAO<T> {
+interface GenericDAO<T> {
     /**
      *
      * @param t object to persist
