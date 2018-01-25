@@ -27,14 +27,14 @@ public class PersonServices {
     @GET
     @Path("/{id}/homes")
     @Produces({MediaType.APPLICATION_JSON})
-    public Response personHomes(@PathParam("id") int id){
+    public Response homes(@PathParam("id") int id){
         return this.response(this.person(id).getHomes());
     }
 
     @GET
     @Path("/{id}/friends")
     @Produces({MediaType.APPLICATION_JSON})
-    public Response personFriends(@PathParam("id") int id){
+    public Response friends(@PathParam("id") int id){
         return this.response(this.person(id).getFriends());
     }
 
@@ -42,24 +42,25 @@ public class PersonServices {
     @Path("/{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Person person(@PathParam("id") int id){
-        return (Person) this.dao.read(id);
+        return this.dao.read(id);
     }
 
     @POST
     @Path("/add")
-    public Response personPost(@FormParam("name") String name, @FormParam("surname") String surname, @FormParam("email") String email){
-        Person p = new Person(name, surname, email);
-        dao.create(p);
-        System.out.println(p.toString());
-        return Response.status(201).entity("added" + name + " " + surname + " " + email).build();
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response add(Person p){
+        this.dao.create(p);
+        return this.people();
     }
 
     @DELETE
     @Path("/delete/{id}")
+    @Produces({MediaType.APPLICATION_JSON})
     public Response delete(@PathParam("id") int id){
-        Person p = (Person) this.dao.read(id);
+        Person p = this.dao.read(id);
         this.dao.delete(p);
-        return Response.status(204).entity("deleted" + p.toString()).build();
+        return this.people();
     }
 
     private Response response(Object o){
