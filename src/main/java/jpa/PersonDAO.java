@@ -19,9 +19,11 @@ public class PersonDAO implements GenericDAO{
      * @param o
      */
     public void create(Object...o) {
+        this.transaction.begin();
         for (Object anO : o) {
             this.entityManager.persist(anO);
         }
+        this.transaction.commit();
     }
 
     /**
@@ -35,18 +37,24 @@ public class PersonDAO implements GenericDAO{
      * @param o
      */
     public void update(Object...o) {
+        this.transaction.begin();
         for (Object in: o) {
             this.entityManager.merge(in);
         }
+        this.transaction.commit();
     }
 
     /**
      * @param o
      */
     public void delete(Object...o) {
+        this.transaction.begin();
         for (Object in : o){
             this.entityManager.remove(in);
         }
+        entityManager.flush();
+        entityManager.clear();
+        this.transaction.commit();
     }
 
     public List<Person> readAll(){
