@@ -20,9 +20,7 @@ public class UserInfo extends HttpServlet {
         user.setName(request.getParameter("name"));
         user.setSurname(request.getParameter("firstname"));
         user.setMail(request.getParameter("email"));
-        personDAO.getTransaction().begin();
         personDAO.create(user);
-        personDAO.getTransaction().commit();
         response .setContentType( "text/html" );
         PrintWriter out = response .getWriter();
         out.println( "<html>\n<body>\n" +
