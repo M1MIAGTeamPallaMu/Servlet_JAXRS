@@ -1,12 +1,8 @@
 package servlet;
 
 import domain.Person;
-import jpa.GenTestDAO;
+import jpa.PersonDAO;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,14 +15,14 @@ import java.io.PrintWriter;
 public class UserInfo extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request , HttpServletResponse response ) throws ServletException, IOException {
-        GenTestDAO genTestDAO = new GenTestDAO();
+        PersonDAO personDAO = new PersonDAO();
         Person user = new Person();
         user.setName(request.getParameter("name"));
         user.setSurname(request.getParameter("firstname"));
         user.setMail(request.getParameter("email"));
-        genTestDAO.getTransaction().begin();
-        genTestDAO.create(user);
-        genTestDAO.getTransaction().commit();
+        personDAO.getTransaction().begin();
+        personDAO.create(user);
+        personDAO.getTransaction().commit();
         response .setContentType( "text/html" );
         PrintWriter out = response .getWriter();
         out.println( "<html>\n<body>\n" +
