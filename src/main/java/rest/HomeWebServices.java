@@ -23,16 +23,15 @@ public class HomeWebServices {
     @Produces({MediaType.APPLICATION_JSON})
     public Response add(Home h){
         this.dao.create(h);
-        return Response.status(201).entity(h).build();
+        return this.homes();
     }
 
     @GET
     @Path("/{id}")
     @Produces({MediaType.APPLICATION_JSON})
-    public Response readHome(@PathParam("id") int id){
+    public Response find(@PathParam("id") int id){
         return this.response(this.dao.read(id));
     }
-
 
     private Response response(Object o){
         return Response.ok(o).build();
