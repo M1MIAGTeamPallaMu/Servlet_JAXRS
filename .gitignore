@@ -26,3 +26,4 @@ hs_err_pid*
 .idea/
 data/test.tmp/
 target/
+.iml
