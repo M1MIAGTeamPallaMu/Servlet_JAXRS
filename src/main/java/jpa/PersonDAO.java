@@ -9,18 +9,19 @@ import javax.persistence.Persistence;
 import java.util.List;
 
 
-public class PersonDAO implements GenericDAO{
+public class PersonDAO implements GenericDAO<Person>{
 
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("dev");
-    EntityManager entityManager = this.entityManagerFactory.createEntityManager();
-    EntityTransaction transaction = this.entityManager.getTransaction();
+    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("dev");
+    private EntityManager entityManager = this.entityManagerFactory.createEntityManager();
+    private EntityTransaction transaction = this.entityManager.getTransaction();
 
     /**
      * @param o
      */
-    public void create(Object...o) {
+    @Override
+    public void create(Person...o) {
         this.transaction.begin();
-        for (Object anO : o) {
+        for (Person anO : o) {
             this.entityManager.persist(anO);
         }
         this.transaction.commit();
@@ -29,14 +30,16 @@ public class PersonDAO implements GenericDAO{
     /**
      * @param id
      */
-    public Object read(int id) {
+    @Override
+    public Person read(int id) {
         return this.entityManager.find(Person.class, id);
     }
 
     /**
      * @param o
      */
-    public void update(Object...o) {
+    @Override
+    public void update(Person...o) {
         this.transaction.begin();
         for (Object in: o) {
             this.entityManager.merge(in);
@@ -47,7 +50,8 @@ public class PersonDAO implements GenericDAO{
     /**
      * @param o
      */
-    public void delete(Object...o) {
+    @Override
+    public void delete(Person...o) {
         this.transaction.begin();
         for (Object in : o){
             this.entityManager.remove(in);
