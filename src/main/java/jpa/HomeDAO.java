@@ -8,18 +8,19 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.List;
 
-public class HomeDAO implements GenericDAO{
+public class HomeDAO implements GenericDAO<Home>{
 
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("dev");
-    EntityManager entityManager = this.entityManagerFactory.createEntityManager();
-    EntityTransaction transaction = this.entityManager.getTransaction();
+    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("dev");
+    private EntityManager entityManager = this.entityManagerFactory.createEntityManager();
+    private EntityTransaction transaction = this.entityManager.getTransaction();
 
     /**
      * @param o
      */
-    public void create(Object...o) {
+    @Override
+    public void create(Home...o) {
         this.transaction.begin();
-        for (Object anO : o) {
+        for (Home anO : o) {
             this.entityManager.persist(anO);
         }
         this.transaction.commit();
@@ -28,16 +29,18 @@ public class HomeDAO implements GenericDAO{
     /**
      * @param id
      */
-    public Object read(int id) {
+    @Override
+    public Home read(int id) {
         return this.entityManager.find(Home.class, id);
     }
 
     /**
      * @param o
      */
-    public void update(Object...o) {
+    @Override
+    public void update(Home...o) {
         this.transaction.begin();
-        for (Object in: o) {
+        for (Home in: o) {
             this.entityManager.merge(in);
         }
         this.transaction.commit();
@@ -46,7 +49,8 @@ public class HomeDAO implements GenericDAO{
     /**
      * @param o
      */
-    public void delete(Object...o) {
+    @Override
+    public void delete(Home...o) {
         this.transaction.begin();
         for (Object in : o){
             this.entityManager.remove(in);
