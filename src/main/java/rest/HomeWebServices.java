@@ -1,37 +1,36 @@
 package rest;
 
 import domain.Home;
-import jpa.GenTestDAO;
+import jpa.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/homapi")
+@Path("/home")
 public class HomeWebServices {
-    private GenTestDAO hdao = new GenTestDAO();
+    private HomeDAO dao = new HomeDAO();
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public Response homes(){
-        return this.response(this.hdao.getEntityManager().
-                createQuery("from Home", Home.class).
-                getResultList());
+        return this.response(this.dao.readAll());
     }
 
     @POST
+    @Path("/add")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Response add(Home h){
-        this.hdao.create(h);
+        this.dao.create(h);
         return Response.status(201).entity(h).build();
     }
 
     @GET
-    @Path("/home/{id}")
+    @Path("/{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Response readHome(@PathParam("id") int id){
-        return this.response(this.hdao.read(id, Home.class));
+        return this.response(this.dao.read(id));
     }
 
 
