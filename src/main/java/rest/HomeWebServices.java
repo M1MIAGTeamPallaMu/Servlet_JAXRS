@@ -18,7 +18,7 @@ public class HomeWebServices {
     }
 
     @POST
-    @Path("/add")
+    @Path("/")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Response add(Home h){

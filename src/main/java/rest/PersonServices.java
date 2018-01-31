@@ -46,7 +46,7 @@ public class PersonServices {
     }
 
     @POST
-    @Path("/add")
+    @Path("/")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Response add(Person p){
@@ -55,7 +55,7 @@ public class PersonServices {
     }
 
     @DELETE
-    @Path("/delete/{id}")
+    @Path("/{id}")
     @Produces({MediaType.APPLICATION_JSON})
     public Response delete(@PathParam("id") int id){
         Person p = this.dao.read(id);
