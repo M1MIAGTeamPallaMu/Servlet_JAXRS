@@ -1,5 +1,6 @@
 package domain;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
@@ -68,7 +69,7 @@ public class Home {
         this.rooms = rooms;
     }
 
-    @JsonBackReference
+    @JsonIgnore
     @OneToMany(targetEntity = Heater.class)
     public List<Heater> getHeaters() {
         return this.heaters;
