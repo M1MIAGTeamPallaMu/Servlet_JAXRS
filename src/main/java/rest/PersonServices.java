@@ -46,7 +46,6 @@ public class PersonServices {
     }
 
     @POST
-    @Path("/")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Response add(Person p){
