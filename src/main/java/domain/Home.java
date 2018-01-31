@@ -68,7 +68,7 @@ public class Home {
         this.rooms = rooms;
     }
 
-    @JsonIgnore
+    @JsonBackReference
     @OneToMany(targetEntity = Heater.class)
     public List<Heater> getHeaters() {
         return this.heaters;

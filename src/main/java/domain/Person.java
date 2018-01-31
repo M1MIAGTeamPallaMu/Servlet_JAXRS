@@ -72,7 +72,7 @@ public class Person {
         this.friends = friends;
     }
 
-    @JsonIgnore
+    @JsonManagedReference
     @OneToMany(targetEntity = Home.class, fetch=FetchType.LAZY)
     public List<Home> getHomes() {
         return homes;
