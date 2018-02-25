@@ -1,6 +1,8 @@
 package domain;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -72,8 +74,8 @@ public class Person {
         this.friends = friends;
     }
 
-    @JsonIgnore
-    @OneToMany(targetEntity = Home.class, fetch=FetchType.LAZY)
+    @JsonBackReference
+    @OneToMany(targetEntity = Home.class)
     public List<Home> getHomes() {
         return homes;
     }

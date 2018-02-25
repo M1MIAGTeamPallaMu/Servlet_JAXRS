@@ -2,6 +2,7 @@ package domain;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -31,6 +32,8 @@ public class Home {
      *
      */
     private int rooms;
+
+    private Person owner;
 
     public Home(){
 
@@ -86,5 +89,15 @@ public class Home {
 
     public void setHomeAddress(Address homeAddress) {
         this.homeAddress = homeAddress;
+    }
+
+    @JsonManagedReference
+    @ManyToOne
+    public Person getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Person owner) {
+        this.owner = owner;
     }
 }
