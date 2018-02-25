@@ -74,7 +74,7 @@ public class Person {
         this.friends = friends;
     }
 
-    @JsonBackReference
+    @JsonManagedReference
     @OneToMany(targetEntity = Home.class)
     public List<Home> getHomes() {
         return homes;

@@ -91,7 +91,7 @@ public class Home {
         this.homeAddress = homeAddress;
     }
 
-    @JsonManagedReference
+    @JsonBackReference
     @ManyToOne
     public Person getOwner() {
         return owner;
