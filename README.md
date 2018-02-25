@@ -9,7 +9,9 @@ You can import the project in Eclipse or IntelliJ as a Maven project.
 
 # Api routes
 
+Resource used : application/json
 Base URI : "localhost:8080/rest/"
+
 
 | Method     | URL | Action   |
 | :------- | ----: | :---: |
@@ -23,3 +25,18 @@ Base URI : "localhost:8080/rest/"
 | GET    | /home  |  display all the homes   |
 | GET    | /home/{id}  |  display one specific home with the given {id} parameter   |
 | POST    | /home  |  create a new home  |
+
+
+## Parameter for POST requests :
+
+ ### /person : 
+ 
+ - name : String
+ - surname : String
+ - mail  : String
+
+
+ ### /home : 
+ 
+ - size : Integer
+ - rooms : Integer
