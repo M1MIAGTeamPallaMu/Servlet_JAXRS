@@ -8,15 +8,24 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/home")
-public class HomeWebServices {
+public class HomeServices {
     private HomeDAO dao = new HomeDAO();
 
+    /**
+     * Return all homes
+     * @return
+     */
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public Response homes(){
         return this.response(this.dao.readAll());
     }
 
+
+    /**
+     * Create a new home
+     * @return
+     */
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
@@ -25,6 +34,10 @@ public class HomeWebServices {
         return this.homes();
     }
 
+    /**
+     * Return one home by it's {id}
+     * @return
+     */
     @GET
     @Path("/{id}")
     @Produces({MediaType.APPLICATION_JSON})
