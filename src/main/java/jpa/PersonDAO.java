@@ -18,7 +18,6 @@ public class PersonDAO implements GenericDAO<Person>{
     /**
      * @param o
      */
-    @Override
     public void create(Person...o) {
         this.transaction.begin();
         for (Person anO : o) {
@@ -30,7 +29,6 @@ public class PersonDAO implements GenericDAO<Person>{
     /**
      * @param id
      */
-    @Override
     public Person read(int id) {
         return this.entityManager.find(Person.class, id);
     }
@@ -38,7 +36,6 @@ public class PersonDAO implements GenericDAO<Person>{
     /**
      * @param o
      */
-    @Override
     public void update(Person...o) {
         this.transaction.begin();
         for (Object in: o) {
@@ -50,7 +47,6 @@ public class PersonDAO implements GenericDAO<Person>{
     /**
      * @param o
      */
-    @Override
     public void delete(Person...o) {
         this.transaction.begin();
         for (Object in : o){
