@@ -1,4 +1,4 @@
-# REST API design model
+# DESIGN MODEL
 The REST API will allow creation, retrieval, update and deletion of resources and information 
 about persons and their homes.
 
