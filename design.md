@@ -16,21 +16,21 @@ As you can see the project is based on a multi-layered application :
  
  Now a few list of technologies used during this project : 
   
-  1.JERSEY
+  1.  JERSEY
   
     The Jersey RESTful Web Services framework is open source, production quality, 
     framework for developing RESTful Web Services in Java that provides support for JAX-RS APIs and serves as a JAX-RS Reference Implementation.
   
-  2. SERVICE Layer (Domain)
+  2.  SERVICE Layer (Domain)
   
     The package domain contains the POJOS.
     
-  3.JPA And Hibernate (Persistence layer)
+  3.  JPA And Hibernate (Persistence layer)
   
     We are using GenTestDao that implements a GenericDao to persist object using JPA and Hibernate.
     On the other hand, we have created a PersonDao class and HomeDao class and they both implement the GenericDao Interface.
     
-  4.Tomcat (WEB CONTAINER)
+  4.  Tomcat (WEB CONTAINER)
   
     Everything gets packaged with Maven as a .war file and can be deployed on any web container – We are using Tomcat.
    
