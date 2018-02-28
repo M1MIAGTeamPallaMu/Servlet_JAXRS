@@ -1,42 +1,23 @@
 # Servlet_JAXRS
 
+#Introduction
+
+This is a practical lab project. The idea is to create some sort of API prototype.
+Further details are provided, about how the API works, and the routes that were created to allow its use.
+
+#Installation 
+You can clone the project in any directory on you pc, mac or linux system. The project was made using Intellij IDEA 2017.3 version.
+After downloading the project, you can import it in Eclipse or IntelliJ as a Maven project.
+You will also have to add a **data** folder at the root of the repository.
+
 In order to run the project you need to launch 'run-hsqldb-server' .bat on windows / .sh on linux to launch the database.
+Intellij IDEA allows you to install plugins that are responsible for launching bash and cmd scripts.
+
+We are using hibernate in **"dev"** mode, we did not wanted to make it possible for anyone to access remotely the sql database.
+To visualize the database state you can install DATAGRIP or install a plugin in Intellij that handles sql database on local machines.
+
 You also have to start tomcat7:run command in order to start the servlet.
 
-The project is provided on localhost:8080 port.
+We have provided a contact form to add a person's information, the url is under ![#1589F0](https://placehold.it/15/1589F0/000000?text=+) **`localhost:port_number/contact_form/index.html`**
 
-You can import the project in Eclipse or IntelliJ as a Maven project.
-
-# Api routes
-
-Resource used : application/json
-Base URI : "localhost:8080/rest/"
-
-
-| Method     | URL | Action   |
-| :------- | ----: | :---: |
-| GET    | /person  |  display all the people   |
-| GET    | /person/{id}  |  display one specific person with the given {id} parameter   |
-| GET    | /person/{id}/devices  |  display all the devices owned by the person with the given {id} parameter   |
-| GET    | /person/{id}/homes  |  display all the houses owned by the person with the given {id} parameter   |
-| GET    | /person/{id}/friends  |  display all the people friends with a person identified by the given {id} parameter   |
-| POST    | /person  |  create a new person   |
-| DELETE    | /person/{id}  |  delete one specific person with the given {id} parameter   |
-| GET    | /home  |  display all the homes   |
-| GET    | /home/{id}  |  display one specific home with the given {id} parameter   |
-| POST    | /home  |  create a new home  |
-
-
-## Parameter for POST requests :
-
- ### /person : 
- 
- - name : String
- - surname : String
- - mail  : String
-
-
- ### /home : 
- 
- - size : Integer
- - rooms : Integer
+Access to the api is under localhost:8080/rest/ . The routes are indicated in the design.md file
