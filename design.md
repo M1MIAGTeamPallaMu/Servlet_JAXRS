@@ -4,7 +4,7 @@ about persons and their homes.
 
 # ARCHITECTURE AND TECHNOLOGIES 
 
-![Alt text](architecture.jpg?raw=true "Architecture")
+![Architecture](/architecture.jpg)
 
 # Api routes
 
