@@ -6,9 +6,9 @@ about persons and their homes.
 
 ![Architecture](/architecture.jpg)
 
-As you can see the project is based on a multi-layered application : 
+As you can see the project is based on a multi-layered pattern : 
 
- * The first layer is the Rest support implemented with Jersey, has the role of a facade (facade pattern - ACO module) and delegates the logic to the business or service layer
+ * The first layer is the REST support implemented with Jersey, has the role of a facade (facade pattern - ACO module) and delegates the logic to the business or service layer
  
  * The Service layer is where the logic happens
  
