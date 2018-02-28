@@ -7,7 +7,7 @@ Further details are provided, about how the API works, and the routes that were 
 
 # Installation 
 
-You can clone the project in any directory on you pc, mac or linux system. The project was made using Intellij IDEA 2017.3 version.
+You can clone the project in any directory on your pc, mac or linux system. The project was made using Intellij IDEA 2017.3 version.
 After downloading the project, you can import it in Eclipse or IntelliJ as a Maven project.
 You will also have to add a **data** folder at the root of the repository.
 
@@ -19,7 +19,7 @@ To visualize the database state you can install DATAGRIP or install a plugin in 
 
 You also have to start tomcat7:run command in order to start the servlet.
 
-We have provided a contact form to add a person's information.Its url is under **`localhost:port_number/contact_form/index.html`**.
-The port number can be configured in the pom.xml file.
+We have provided a contact form to add a person's information. 
+Its url is under **`localhost:port_number/contact_form/index.html`**.The port number can be configured in the pom.xml file.
 
 Access to the api is under localhost:8080/rest/ . The routes are indicated in the design.md file
