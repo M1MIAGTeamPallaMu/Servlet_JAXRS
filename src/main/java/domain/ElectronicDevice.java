@@ -7,50 +7,42 @@ import javax.persistence.Id;
 @Entity
 public class ElectronicDevice extends SmartDrivers {
 
-    /**
-     *
-     */
-    private int id;
+  private int id;
+  private String device;
 
-    /**
-     *
-     */
-    private String device;
-    /**
-     *
-     */
-    private int watts;
+  private int watts;
 
-    public ElectronicDevice(){}
+  public ElectronicDevice() {
+  }
 
-    public ElectronicDevice(String device, int watts){
-        this.device = device;
-        this.watts = watts;
-    }
+  public ElectronicDevice(String device, int watts) {
+    this.device = device;
+    this.watts = watts;
+  }
 
-    @Id
-    @GeneratedValue
-    public int getId() {
-        return id;
-    }
+  @Id
+  @GeneratedValue
+  public int getId() {
+    return id;
+  }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+  public void setId(int id) {
+    this.id = id;
+  }
 
-    public int getWatts() {
-        return watts;
-    }
+  public int getWatts() {
+    return watts;
+  }
 
-    public void setWatts(int watts) {
-        this.watts = watts;
-    }
+  public void setWatts(int watts) {
+    this.watts = watts;
+  }
 
-    public String getDevice() {
-        return device;
-    }
+  public String getDevice() {
+    return device;
+  }
 
-    public void setDevice(String device) {
-        this.device = device;
-    }
+  public void setDevice(String device) {
+    this.device = device;
+  }
 }

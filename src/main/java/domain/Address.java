@@ -6,77 +6,67 @@ import javax.persistence.Id;
 
 @Entity
 public class Address {
-    /**
-     *
-     */
-    private int addressId;
-    /**
-     *
-     */
-    private String country;
-    /**
-     *
-     */
-    private String zipCode;
 
-    /**
-     *
-     */
-    private String street;
+  private int addressId;
 
-    /**
-     *
-     */
-    private String city;
+  private String country;
 
-    public Address(){}
+  private String zipCode;
 
-    public Address(String street,String city, String zipCode, String country){
-        this.street = street;
-        this.city = city;
-        this.country = country;
-        this.zipCode = zipCode;
-    }
+  private String street;
 
-    @Id
-    @GeneratedValue
-    public int getAddressId() {
-        return addressId;
-    }
 
-    public void setAddressId(int addressId) {
-        this.addressId = addressId;
-    }
+  private String city;
 
-    public String getCountry() {
-        return country;
-    }
+  public Address() {
+  }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
+  public Address(String street, String city, String zipCode, String country) {
+    this.street = street;
+    this.city = city;
+    this.country = country;
+    this.zipCode = zipCode;
+  }
 
-    public String getZipCode() {
-        return zipCode;
-    }
+  @Id
+  @GeneratedValue
+  public int getAddressId() {
+    return addressId;
+  }
 
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
-    }
+  public void setAddressId(int addressId) {
+    this.addressId = addressId;
+  }
 
-    public String getStreet() {
-        return street;
-    }
+  public String getCountry() {
+    return country;
+  }
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
+  public void setCountry(String country) {
+    this.country = country;
+  }
 
-    public String getCity() {
-        return city;
-    }
+  public String getZipCode() {
+    return zipCode;
+  }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+  public void setZipCode(String zipCode) {
+    this.zipCode = zipCode;
+  }
+
+  public String getStreet() {
+    return street;
+  }
+
+  public void setStreet(String street) {
+    this.street = street;
+  }
+
+  public String getCity() {
+    return city;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
 }

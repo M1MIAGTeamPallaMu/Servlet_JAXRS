@@ -6,21 +6,19 @@ import javax.persistence.Id;
 
 @Entity
 public class Heater extends SmartDrivers {
-    /**
-     *
-     */
-    private int id;
 
-    public Heater(){
-    }
+  private int id;
 
-    @Id
-    @GeneratedValue
-    public int getId() {
-        return id;
-    }
+  public Heater() {
+  }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+  @Id
+  @GeneratedValue
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
 }
