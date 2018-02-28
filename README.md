@@ -18,6 +18,7 @@ To visualize the database state you can install DATAGRIP or install a plugin in 
 
 You also have to start tomcat7:run command in order to start the servlet.
 
-We have provided a contact form to add a person's information, the url is under ![#1589F0](https://placehold.it/15/1589F0/000000?text=+) **`localhost:port_number/contact_form/index.html`**
+We have provided a contact form to add a person's information, the url is under **`localhost:port_number/contact_form/index.html`**.
+The port number can be configured in the pom.xml file.
 
 Access to the api is under localhost:8080/rest/ . The routes are indicated in the design.md file
