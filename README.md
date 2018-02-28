@@ -24,6 +24,6 @@ Its url is under **`localhost:port_number/contact_form/index.html`**.The port nu
 
 You can run a really quick test by using JpaTest class and you will have some records in your database.
 
-Access to the api is under localhost:8080/rest/ . The routes are indicated in the design.md file
+Access to the api is under localhost:8080/rest/ . The routes are indicated in the design.md file.
 From thereon, you will be able to add records using the API. 
 Install Postman software or extension on google chrome to easily interact with the API.
