@@ -6,7 +6,38 @@ about persons and their homes.
 
 ![Architecture](/architecture.jpg)
 
-# Api routes
+As you can see the project is based on a multi-layered application : 
+
+ * The first layer is the Rest support implemented with Jersey, has the role of a facade (facade pattern - ACO module) and delegates the logic to the business or service layer
+ 
+ * The Service layer is where the logic happens
+ 
+ * The Data Access layer is where the communications with the persistence storage takes place.
+ 
+ Now a few list of technologies used during this project : 
+  
+  1.JERSEY
+  
+    The Jersey RESTful Web Services framework is open source, production quality, 
+    framework for developing RESTful Web Services in Java that provides support for JAX-RS APIs and serves as a JAX-RS Reference Implementation.
+  
+  2.SERVICE Layer (Domain)
+  
+    The package domain contains the POJOS.
+    
+  3.JPA And Hibernate (Persistence layer)
+  
+    We are using GenTestDao that implements a GenericDao to persist object using JPA and Hibernate.
+    On the other hand, we have created a PersonDao class and HomeDao class and they both implement the GenericDao Interface.
+    
+  4.Tomcat (WEB CONTAINER)
+  
+    Everything gets packaged with Maven as a .war file and can be deployed on any web container – We are using Tomcat.
+   
+  
+
+ 
+# API ROUTES
 
 Resource used : application/json
 Base URI : "localhost:8080/rest/"
