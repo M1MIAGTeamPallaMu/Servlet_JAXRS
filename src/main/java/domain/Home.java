@@ -2,11 +2,9 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+
+import org.codehaus.jackson.annotate.JsonBackReference;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 @Entity
@@ -17,6 +15,8 @@ public class Home {
   private int homeId;
   private int size;
   private int rooms;
+
+  private Person person;
 
   public Home() {
 
@@ -74,4 +74,13 @@ public class Home {
     this.homeAddress = homeAddress;
   }
 
+  @JsonBackReference
+  @ManyToOne(targetEntity = Person.class)
+  public Person getPerson() {
+    return person;
+  }
+
+  public void setPerson(Person person) {
+    this.person = person;
+  }
 }
